@@ -1,0 +1,25 @@
+.AddMedicineItem {
+  margin: 0 auto 0 auto;
+  width: 30%;
+  min-width: 350px;
+  min-height: 300px;
+  text-align: center;
+  font-size: 28px;
+  background-color: white;
+  padding-top: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+.AddMedicineItem input {
+  min-width: 150px;
+  min-height: 30px;
+  font-size: 25px;
+}
+
+.AddItem {
+  height: 40px;
+  width: auto;
+  font-size: 17px;
+}

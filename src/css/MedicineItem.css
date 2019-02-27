@@ -1,0 +1,16 @@
+.MedicineItem {
+  margin: 0 auto 0 auto;
+  width: 30%;
+  min-width: 350px;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  font-size: 18px;
+  min-height: 30px;
+  display: flex;
+}
+
+.ItemDate {
+  margin-left: auto;
+}
