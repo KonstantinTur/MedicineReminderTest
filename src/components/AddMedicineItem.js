@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../css/AddMedicineItem.css";
-import MedicineItem from "./MedicineItem";
 
 class AddMedicineItem extends Component {
   AddItem = () => {
@@ -32,7 +31,6 @@ class AddMedicineItem extends Component {
             </button>
           </div>
         </div>
-        <MedicineItem Medicine={this.props.Medicine} />
       </React.Fragment>
     );
   }

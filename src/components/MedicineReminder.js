@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AddMedicineItem from "./AddMedicineItem";
-import uuid from "uuid";
 import MedicineItem from "./MedicineItem";
+import uuid from "uuid";
 
 class MedicineReminder extends Component {
   state = {
@@ -14,15 +14,38 @@ class MedicineReminder extends Component {
       title: title,
       time: time
     };
-    this.setState({ Medicine: [...this.state.Medicine, newMedicine] });
+    if (title === "" || time === "") {
+      alert("Введите название/время");
+    } else {
+      this.setState({ Medicine: [...this.state.Medicine, newMedicine] });
+      document.getElementById("MedicineName").value = "";
+      document.getElementById("MedicineTime").value = "";
+    }
+  };
+
+  deleteMedicine = id => {
+    this.setState({
+      Medicine: [...this.state.Medicine.filter(Medicine => Medicine.id !== id)]
+    });
   };
 
   render() {
     return (
-      <AddMedicineItem
-        addMedicine={this.addMedicine}
-        Medicine={this.state.Medicine}
-      />
+      <React-fragment>
+        <AddMedicineItem
+          addMedicine={this.addMedicine}
+          Medicine={this.state.Medicine}
+          deleteMedicine={this.deleteMedicine}
+        />
+        {this.state.Medicine.map(Medicine => (
+          <MedicineItem
+            title={Medicine.title}
+            id={Medicine.id}
+            time={Medicine.time}
+            deleteMedicine={this.deleteMedicine.bind(this, Medicine.id)}
+          />
+        ))}
+      </React-fragment>
     );
   }
 }
