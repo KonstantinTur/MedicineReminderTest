@@ -18,7 +18,7 @@ class AddMedicineItem extends Component {
               <input
                 id="MedicineName"
                 type="text"
-                placeholder="Введите название лекарства"
+                placeholder="Название лекарства"
               />
             </p>
             <p>

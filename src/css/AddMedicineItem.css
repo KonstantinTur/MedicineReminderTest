@@ -7,19 +7,30 @@
   font-size: 28px;
   background-color: white;
   padding-top: 20px;
-  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid black;
+  font-family: "Roboto Slab", serif;
 }
 
 .AddMedicineItem input {
   min-width: 150px;
   min-height: 30px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .AddItem {
   height: 40px;
   width: auto;
-  font-size: 17px;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+#MedicineTime {
+  margin: 20px 0 5px 0;
+  width: 150px;
+  padding-left: 90px;
+}
+
+#MedicineName {
+  padding-left: 5px;
 }

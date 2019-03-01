@@ -3,10 +3,9 @@
   width: 30%;
   min-width: 350px;
   background-color: white;
-  padding: 10px;
   margin-bottom: 5px;
   border: 1px solid black;
-  font-size: 18px;
+  font-size: 20px;
   min-height: 30px;
   display: flex;
   align-items: center;
@@ -17,7 +16,12 @@
   margin-right: 20px;
 }
 
+.ItemTitle {
+  margin-left: 20px;
+}
+
 .DeleteItem {
   width: 20px;
   height: 20px;
+  margin-right: 20px;
 }
