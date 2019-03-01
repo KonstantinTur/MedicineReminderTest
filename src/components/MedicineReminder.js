@@ -8,6 +8,18 @@ class MedicineReminder extends Component {
     Medicine: []
   };
 
+  componentWillMount() {
+    localStorage.getItem("MedicineList") &&
+      this.setState({
+        Medicine: JSON.parse(localStorage.getItem("MedicineList"))
+      });
+  }
+
+  //WARNING! To be deprecated in React v17. Use componentDidUpdate instead.
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("MedicineList", JSON.stringify(nextState.Medicine));
+  }
+
   addMedicine = (title, time) => {
     const newMedicine = {
       id: uuid.v4(),
@@ -37,14 +49,17 @@ class MedicineReminder extends Component {
           Medicine={this.state.Medicine}
           deleteMedicine={this.deleteMedicine}
         />
-        {this.state.Medicine.map(Medicine => (
-          <MedicineItem
-            title={Medicine.title}
-            id={Medicine.id}
-            time={Medicine.time}
-            deleteMedicine={this.deleteMedicine.bind(this, Medicine.id)}
-          />
-        ))}
+        <div id="MedicineList">
+          {this.state.Medicine.map(Medicine => (
+            <MedicineItem
+              key={Medicine.id}
+              title={Medicine.title}
+              id={Medicine.id}
+              time={Medicine.time}
+              deleteMedicine={this.deleteMedicine.bind(this, Medicine.id)}
+            />
+          ))}
+        </div>
       </React-fragment>
     );
   }
