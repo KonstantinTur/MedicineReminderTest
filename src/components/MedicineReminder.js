@@ -5,7 +5,8 @@ import uuid from "uuid";
 
 class MedicineReminder extends Component {
   state = {
-    Medicine: []
+    Medicine: [],
+    curTime: new Date().toLocaleString()
   };
 
   componentWillMount() {
@@ -18,6 +19,14 @@ class MedicineReminder extends Component {
   //WARNING! To be deprecated in React v17. Use componentDidUpdate instead.
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("MedicineList", JSON.stringify(nextState.Medicine));
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        curTime: new Date().toLocaleString()
+      });
+    }, 1000);
   }
 
   addMedicine = (title, time) => {
@@ -49,10 +58,29 @@ class MedicineReminder extends Component {
           Medicine={this.state.Medicine}
           deleteMedicine={this.deleteMedicine}
         />
+        <div
+          className="CurrentTime"
+          style={{
+            textAlign: "center",
+            margin: "0 auto 10px auto",
+            fontSize: "25px",
+            fontFamily: "Roboto Slab, serif"
+          }}
+        >
+          Текущее время <br />
+          {this.state.curTime}
+        </div>
         <div id="MedicineList">
-          {this.state.Medicine.map(Medicine => (
+          {this.state.Medicine.sort(
+            (a, b) =>
+              a.time.split(":")[0] * 60 +
+              a.time.split(":")[1] +
+              0 -
+              (b.time.split(":")[0] * 60 + b.time.split(":")[1] + 0)
+          ).map(Medicine => (
             <MedicineItem
               key={Medicine.id}
+              curTime={this.state.curTime}
               title={Medicine.title}
               id={Medicine.id}
               time={Medicine.time}
