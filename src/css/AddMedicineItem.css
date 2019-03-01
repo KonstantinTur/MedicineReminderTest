@@ -16,6 +16,7 @@
   min-width: 150px;
   min-height: 30px;
   font-size: 20px;
+  font-family: "Roboto Slab", serif;
 }
 
 .AddItem {
@@ -28,7 +29,7 @@
 #MedicineTime {
   margin: 20px 0 5px 0;
   width: 150px;
-  padding-left: 90px;
+  padding-left: 115px;
 }
 
 #MedicineName {
